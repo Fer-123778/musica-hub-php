@@ -1,0 +1,125 @@
+body {
+    background-color: #0a0a14;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.nav-musica {
+    background-color: #111120;
+    border-bottom: 1px solid #2a2a40;
+}
+
+.nav-musica .nav-link {
+    color: #a0a0c0;
+}
+
+.nav-musica .nav-link:hover,
+.nav-musica .nav-link.active {
+    color: #ffffff;
+    background-color: #2a2a4a;
+    border-radius: 8px;
+}
+
+.hero {
+    padding: 80px 0 60px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.texto-degradado {
+    background: linear-gradient(90deg, #a78bfa, #f472b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.btn-musica {
+    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 28px;
+    font-weight: 600;
+}
+
+.btn-musica:hover {
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.tarjeta {
+    background-color: #111120;
+    border-radius: 16px;
+    padding: 20px;
+    height: 100%;
+}
+
+.texto-suave {
+    color: #a0a0c0;
+}
+
+.footer-musica {
+    background-color: #111120;
+    border-top: 1px solid #2a2a40;
+    color: #a0a0c0;
+}
+
+.footer-musica a {
+    color: #a78bfa;
+}
+.badge-hero {
+    display: inline-block;
+    background: #1e1b4b;
+    color: #a78bfa;
+    border: 1px solid #3b3a7a;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+}
+
+.portada {
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    display: flex;
+    align-items: flex-end;
+    padding: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    transition: transform 0.2s;
+}
+
+.portada:hover {
+    transform: translateY(-4px);
+}
+
+.fila-ranking {
+    background-color: #111120;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.fila-ranking .numero {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #a78bfa;
+    width: 32px;
+}
+
+.fila-ranking .votos {
+    margin-left: auto;
+    color: #facc15;
+    font-weight: 600;
+}
+
+.portada {
+    background-size: cover;
+    background-position: center;
+    background-color: #1e1b4b;
+}
