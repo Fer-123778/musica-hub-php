@@ -70,3 +70,56 @@ body {
 .footer-musica a {
     color: #a78bfa;
 }
+.badge-hero {
+    display: inline-block;
+    background: #1e1b4b;
+    color: #a78bfa;
+    border: 1px solid #3b3a7a;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+}
+
+.portada {
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    display: flex;
+    align-items: flex-end;
+    padding: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    transition: transform 0.2s;
+}
+
+.portada:hover {
+    transform: translateY(-4px);
+}
+
+.fila-ranking {
+    background-color: #111120;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.fila-ranking .numero {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #a78bfa;
+    width: 32px;
+}
+
+.fila-ranking .votos {
+    margin-left: auto;
+    color: #facc15;
+    font-weight: 600;
+}
+
+.portada {
+    background-size: cover;
+    background-position: center;
+    background-color: #1e1b4b;
+}

@@ -12,16 +12,16 @@ $canciones = [
 ?>
 
 <main class="container py-5">
-    <h1 class="mb-4">Rankings</h1>
-    <p class="texto-suave">Las canciones más votadas por la comunidad.</p>
-    <ol class="list-group list-group-numbered">
-        <?php foreach ($canciones as $c): ?>
-            <li class="list-group-item tarjeta d-flex justify-content-between mb-2">
-                <span><?= $c['titulo']; ?> <span class="texto-suave">- <?= $c['artista']; ?></span></span>
-                <span>⭐ <?= $c['votos']; ?></span>
-            </li>
-        <?php endforeach; ?>
-    </ol>
+    <h1 class="mb-2">Rankings</h1>
+    <p class="texto-suave mb-4">Las canciones más votadas por la comunidad.</p>
+    <?php foreach ($canciones as $i => $c): ?>
+        <div class="fila-ranking">
+            <span class="numero"><?= $i + 1; ?></span>
+            <div>
+                <div class="fw-semibold"><?= $c['titulo']; ?></div>
+                <div class="texto-suave small"><?= $c['artista']; ?></div>
+            </div>
+            <span class="votos">⭐ <?= number_format($c['votos'], 0, ',', '.'); ?></span>
+        </div>
+    <?php endforeach; ?>
 </main>
-
-<?php require_once 'includes/footer.php'; ?>
