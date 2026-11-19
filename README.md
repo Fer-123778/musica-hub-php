@@ -39,3 +39,36 @@ https://twice-satin-42519228.figma.site/
 
 ### Variables de entorno
 ![Archivo .env.example](capturas/capturas/04-env-example.png)
+
+## Clase 5: Procesamiento de formularios y seguridad web
+
+Todo el desarrollo de esta entrega está en la carpeta clase5/.
+
+### Formulario POST: opiniones (clase5/opiniones.php)
+Formulario con nombre, email y opinión. El servidor valida que ningún campo llegue vacío, que el nombre tenga al menos 2 caracteres, que el email tenga un formato válido (filter_var) y que la opinión tenga al menos 10 caracteres. Si hay errores, muestra mensajes y conserva los datos escritos. Si todo es correcto, muestra un mensaje de éxito.
+
+### Formulario GET: buscador (clase5/buscar.php)
+Buscador de canciones y artistas por texto y género. Los datos viajan en la URL (por ejemplo buscar.php?q=rock&genero=). Valida que se complete al menos un campo, limita el texto a 50 caracteres y acepta solo géneros de una lista permitida.
+
+### Seguridad (prevención de XSS)
+- trim() para quitar espacios sobrantes.
+- htmlspecialchars() en la función limpiar() (clase5/datos.php), aplicada a todo dato del usuario antes de mostrarlo.
+- filter_var() con FILTER_VALIDATE_EMAIL para el email.
+- Lista blanca de géneros en el buscador.
+
+### Capturas de pantalla
+
+*Opiniones con errores de validación* (los campos se conservan)
+![Opiniones con errores](clase5/capturas/01-opiniones-error.png)
+
+*Opiniones enviada con éxito*
+![Opiniones exitosa](clase5/capturas/02-opiniones-exito.png)
+
+*Prueba de seguridad XSS* (el script se muestra como texto y no se ejecuta)
+![Prueba XSS](clase5/capturas/03-opiniones-xss.png)
+
+*Búsqueda con resultados* (método GET)
+![Búsqueda con resultados](clase5/capturas/04-buscar-resultados.png)
+
+*Búsqueda con error de validación*
+![Búsqueda con error](clase5/capturas/05-buscar-error.png)
