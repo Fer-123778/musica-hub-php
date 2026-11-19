@@ -29,16 +29,13 @@ https://twice-satin-42519228.figma.site/
 ## Evidencia de funcionamiento
 
 ### Servidor local ejecutándose
-![Servidor local](capturas/01-servidor-local.png)
+![Servidor local](capturas/capturas/01-servidor-local.png)
 
 ### Estructura modular (SSI)
-![Estructura SSI](capturas/02-estructura-ssi.png)
+![Estructura SSI](capturas/capturas/02-estructura-ssi.png)
 
 ### Navegación dinámica (título y menú activo)
-![Navegación dinámica](capturas/03-navegacion-dinamica.png)
+![Navegación dinámica](capturas/capturas/03-navegador-dinamica.png)
 
 ### Variables de entorno
-![Archivo .env.example](capturas/04-env-example.png)
-
-## Música e imágenes
-Los audios son música libre de derechos descargada de Pixabay
+![Archivo .env.example](capturas/capturas/04-env-example.png)
