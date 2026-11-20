@@ -88,3 +88,35 @@ Todo el desarrollo está en la carpeta tp6/.
 
 *Consulta con INNER JOIN*
 ![Consulta JOIN](tp6/capturas/02-join.png)
+
+## TP 7: Persistencia y conexión PHP-MySQL segura
+
+Módulo CRUD de canciones integrado al sitio, en la carpeta admin/. Usa la base musica_hub del TP 6.
+
+- config/conexion.php: conexión PDO con try-catch. Los datos de conexión se leen del archivo .env.
+- admin/index.php: listado de canciones (Read) con INNER JOIN a artistas y géneros.
+- admin/crear.php: alta de canciones (Create).
+- admin/editar.php: modificación de canciones (Update).
+- admin/eliminar.php: baja de canciones (Delete).
+
+### Seguridad
+- Todas las consultas usan *sentencias preparadas* con parámetros nombrados (:titulo, :id, etc.) para evitar inyección SQL.
+- Toda variable impresa en pantalla pasa por htmlspecialchars() (función h()) para evitar XSS.
+- Validación en el servidor: campos obligatorios y filter_var para los identificadores.
+
+### Capturas de pantalla
+
+*Listado de canciones (Read)*
+![Listado](tp7/capturas/01-listado.png)
+
+*Formulario de alta con errores de validación (Create)*
+![Crear](tp7/capturas/02-crear.png)
+
+*Formulario de edición (Update)*
+![Editar](tp7/capturas/03-editar.png)
+
+*Eliminación de un registro (Delete)*
+![Eliminado](tp7/capturas/04-eliminado.png)
+
+*Datos reflejados en MySQL (phpMyAdmin)*
+![Base de datos](tp7/capturas/05-base.png)

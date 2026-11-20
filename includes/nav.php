@@ -1,6 +1,11 @@
 <?php
 $base = $base ?? '';
-$pagina_actual = basename($_SERVER['PHP_SELF']);
+$carpeta = basename(dirname($_SERVER['PHP_SELF']));
+$archivo_actual = basename($_SERVER['PHP_SELF']);
+$pagina_actual = in_array($carpeta, ['clase5', 'admin'], true)
+    ? $carpeta . '/' . $archivo_actual
+    : $archivo_actual;
+
 $menu = [
     'index.php'            => 'Inicio',
     'noticias.php'         => 'Noticias',
@@ -8,6 +13,7 @@ $menu = [
     'generos.php'          => 'Géneros',
     'clase5/buscar.php'    => 'Buscar',
     'clase5/opiniones.php' => 'Opiniones',
+    'admin/index.php'      => 'Administrar',
     'contacto.php'         => 'Contacto',
 ];
 ?>
@@ -22,7 +28,8 @@ $menu = [
         <div class="collapse navbar-collapse" id="menuPrincipal">
             <ul class="navbar-nav ms-auto">
                 <?php foreach ($menu as $archivo => $texto): ?>
-                    <?php $activo = ($pagina_actual === basename($archivo)); ?>
+                    <?php $activo = ($pagina_actual === $archivo)
+                        || ($carpeta === 'admin' && $archivo === 'admin/index.php'); ?>
                     <li class="nav-item">
                         <a class="nav-link <?= $activo ? 'active' : ''; ?>"
                            href="<?= $base . $archivo; ?>"
