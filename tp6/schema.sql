@@ -1,0 +1,76 @@
+CREATE DATABASE IF NOT EXISTS musica_hub
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+USE musica_hub;
+
+-- Tablas maestras
+CREATE TABLE IF NOT EXISTS roles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(30) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS generos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(40) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS artistas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- Usuarios
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(80) NOT NULL,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    id_rol INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_rol) REFERENCES roles(id)
+) ENGINE=InnoDB;
+
+-- Tabla principal de negocio
+CREATE TABLE IF NOT EXISTS canciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(120) NOT NULL,
+    archivo_audio VARCHAR(120) NOT NULL,
+    id_artista INT NOT NULL,
+    id_genero INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_artista) REFERENCES artistas(id),
+    FOREIGN KEY (id_genero) REFERENCES generos(id)
+) ENGINE=InnoDB;
+
+-- Relación N:M: la estrella de un usuario en una canción
+CREATE TABLE IF NOT EXISTS votos (
+    id_usuario INT NOT NULL,
+    id_cancion INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id_usuario, id_cancion),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_cancion) REFERENCES canciones(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Opiniones del formulario del TP 5
+CREATE TABLE IF NOT EXISTS opiniones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(80) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    mensaje TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- Índices de rendimiento
+CREATE INDEX idx_canciones_genero ON canciones(id_genero);
+CREATE INDEX idx_canciones_artista ON canciones(id_artista);
+CREATE INDEX idx_usuarios_rol ON usuarios(id_rol);

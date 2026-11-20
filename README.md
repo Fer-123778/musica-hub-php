@@ -72,3 +72,19 @@ Buscador de canciones y artistas por texto y género. Los datos viajan en la URL
 
 *Búsqueda con error de validación*
 ![Búsqueda con error](clase5/capturas/05-buscar-error.png)
+
+## TP 6: Diseño y creación del esquema relacional en MySQL
+
+Todo el desarrollo está en la carpeta tp6/.
+
+- tp6/NORMALIZACION.md: tabla sin normalizar, 1FN, 2FN, 3FN y lista de tablas con sus PK y FK.
+- tp6/schema.sql: crea la base musica_hub con 7 tablas, claves primarias y foráneas, campos de auditoría e índices.
+- tp6/consultas.sql: inserciones, consultas con WHERE, ORDER BY e INNER JOIN, un UPDATE y un DELETE.
+
+### Capturas de pantalla
+
+*Tablas creadas en phpMyAdmin*
+![Tablas](tp6/capturas/01-tablas.png)
+
+*Consulta con INNER JOIN*
+![Consulta JOIN](tp6/capturas/02-join.png)
