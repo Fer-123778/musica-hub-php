@@ -2,6 +2,8 @@
 $titulo_pagina = "Administrar canciones";
 $base = '../';
 require_once '../config/conexion.php';
+require_once '../includes/auth_guard.php';
+requerir_login('../login.php');
 require_once '../includes/header.php';
 require_once '../includes/nav.php';
 

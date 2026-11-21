@@ -1,5 +1,9 @@
 <?php
 $base = $base ?? '';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$logueado = isset($_SESSION['usuario_id']);
 $carpeta = basename(dirname($_SERVER['PHP_SELF']));
 $archivo_actual = basename($_SERVER['PHP_SELF']);
 $pagina_actual = in_array($carpeta, ['clase5', 'admin'], true)
@@ -13,9 +17,14 @@ $menu = [
     'generos.php'          => 'Géneros',
     'clase5/buscar.php'    => 'Buscar',
     'clase5/opiniones.php' => 'Opiniones',
-    'admin/index.php'      => 'Administrar',
     'contacto.php'         => 'Contacto',
 ];
+if ($logueado) {
+    $menu['admin/index.php'] = 'Administrar';
+    $menu['panel.php'] = 'Mi panel';
+} else {
+    $menu['login.php'] = 'Ingresar';
+}
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark nav-musica">
     <div class="container">
@@ -38,6 +47,13 @@ $menu = [
                         </a>
                     </li>
                 <?php endforeach; ?>
+                <?php if ($logueado): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= $base; ?>logout.php">
+                            Salir (<?= htmlspecialchars($_SESSION['usuario_nombre'], ENT_QUOTES, 'UTF-8'); ?>)
+                        </a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

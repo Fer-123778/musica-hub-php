@@ -1,5 +1,7 @@
 <?php
 require_once '../config/conexion.php';
+require_once '../includes/auth_guard.php';
+requerir_login('../login.php');
 
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
