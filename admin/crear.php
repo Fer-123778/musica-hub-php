@@ -2,6 +2,8 @@
 $titulo_pagina = "Agregar canción";
 $base = '../';
 require_once '../config/conexion.php';
+require_once '../includes/auth_guard.php';
+requerir_login('../login.php');
 
 $artistas = $pdo->query("SELECT id, nombre FROM artistas ORDER BY nombre")->fetchAll();
 $generos = $pdo->query("SELECT id, nombre FROM generos ORDER BY nombre")->fetchAll();
