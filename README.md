@@ -120,3 +120,44 @@ Módulo CRUD de canciones integrado al sitio, en la carpeta admin/. Usa la base 
 
 *Datos reflejados en MySQL (phpMyAdmin)*
 ![Base de datos](tp7/capturas/05-base.png)
+
+## TP 8: Manejo de estado, sesiones y autenticación
+
+Módulo de registro, inicio y cierre de sesión integrado al sitio.
+
+- registro.php: alta de usuarios con validación, verificación de email único y contraseña con password_hash(..., PASSWORD_BCRYPT).
+- login.php: valida credenciales con password_verify(), ejecuta session_regenerate_id(true) y guarda usuario_id, usuario_nombre y rol en $_SESSION.
+- includes/auth_guard.php: guardián de rutas. Si no hay sesión, redirige a login.php?error=acceso_denegado. Incluye control por rol.
+- panel.php: página protegida para cualquier usuario autenticado.
+- admin_panel.php: página protegida solo para el rol admin.
+- admin/: el CRUD de canciones también exige sesión iniciada.
+- logout.php: vacía $_SESSION, elimina la cookie de sesión y ejecuta session_destroy().
+
+### Seguridad
+- Contraseñas guardadas como hash bcrypt, nunca en texto plano.
+- Consultas preparadas con PDO en todas las operaciones.
+- htmlspecialchars() en todo dato impreso.
+- Regeneración del identificador de sesión al iniciar sesión (previene fijación de sesión).
+
+### Capturas de pantalla
+
+*Registro con error de validación*
+![Registro](tp8/capturas/01-registro.png)
+
+*Login con credenciales incorrectas*
+![Login con error](tp8/capturas/02-login-error.png)
+
+*Acceso denegado sin sesión*
+![Acceso denegado](tp8/capturas/03-acceso-denegado.png)
+
+*Panel del usuario autenticado*
+![Panel](tp8/capturas/04-panel.png)
+
+*Panel de administración (rol admin)*
+![Panel admin](tp8/capturas/05-admin-panel.png)
+
+*Usuario común sin permisos para el panel de administración*
+![Sin permiso](tp8/capturas/06-sin-permiso.png)
+
+*Contraseña guardada como hash en la base de datos*
+![Hash en la base](tp8/capturas/07-hash-base.png)
