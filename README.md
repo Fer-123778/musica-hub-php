@@ -161,3 +161,37 @@ Módulo de registro, inicio y cierre de sesión integrado al sitio.
 
 *Contraseña guardada como hash en la base de datos*
 ![Hash en la base](tp8/capturas/07-hash-base.png)
+
+## TP 9: Comunicación asincrónica y APIs (AJAX y JSON)
+
+Búsqueda de canciones en vivo, sin recargar la página.
+
+- api/buscar_canciones.php: endpoint PHP que consulta MySQL con PDO y consultas preparadas, y responde en formato JSON (json_encode). Devuelve los códigos HTTP 200 (resultados), 400 (búsqueda inválida), 404 (sin resultados), 405 (método no permitido) y 500 (error de base de datos).
+- buscador.php: página con el cuadro de búsqueda y el contenedor de resultados.
+- js/main.js: captura el evento input, hace la petición con fetch (async/await), maneja errores con try...catch y construye las tarjetas en el DOM sin recargar.
+
+### Seguridad
+- Consultas preparadas con parámetros nombrados.
+- Los comodines del LIKE se escapan con addcslashes.
+- Largo máximo de búsqueda validado en el servidor.
+- Los resultados se insertan con textContent y no con innerHTML, para evitar XSS.
+
+### Diferencia con la búsqueda del TP 5
+La búsqueda del TP 5 (clase5/buscar.php) envía un formulario GET y recarga la página. El buscador en vivo actualiza solo la sección de resultados.
+
+### Capturas de pantalla
+
+*Respuesta JSON del endpoint*
+![JSON](tp9/capturas/01-json-todas.png)
+
+*Buscador al abrir*
+![Buscador inicio](tp9/capturas/02-buscador-inicio.png)
+
+*Búsqueda "rock" sin recargar la página*
+![Buscador rock](tp9/capturas/03-buscador-rock.png)
+
+*Búsqueda sin resultados*
+![Sin resultados](tp9/capturas/04-sin-resultados.png)
+
+*Códigos de estado HTTP en la pestaña Red*
+![Códigos HTTP](tp9/capturas/05-codigos-http.png)
