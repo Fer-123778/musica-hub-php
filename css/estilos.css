@@ -123,3 +123,52 @@ body {
     background-position: center;
     background-color: #1e1b4b;
 }
+
+.pestanas {
+    display: inline-flex;
+    gap: 4px;
+    background: #111120;
+    border-radius: 14px;
+    padding: 6px;
+}
+
+.pestana {
+    display: inline-block;
+    text-decoration: none;
+    color: #a0a0c0;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.pestana:hover {
+    color: #ffffff;
+}
+
+.pestana.activa {
+    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    color: #ffffff;
+}
+
+.tarjeta-explorar {
+    background: #111120;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.2s;
+}
+
+.tarjeta-explorar:hover {
+    transform: translateY(-4px);
+}
+
+.tarjeta-explorar .portada-img {
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    background-color: #1e1b4b;
+}
+
+.tarjeta-explorar .cuerpo {
+    padding: 14px;
+}

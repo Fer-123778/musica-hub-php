@@ -16,7 +16,7 @@ $menu = [
     'rankings.php'         => 'Rankings',
     'generos.php'          => 'Géneros',
     'buscador.php'         => 'Buscador en vivo',
-    'clase5/buscar.php'    => 'Buscar con filtro',
+    'clase5/buscar.php'    => 'Explorar',
     'clase5/opiniones.php' => 'Opiniones',
     'contacto.php'         => 'Contacto',
 ];
