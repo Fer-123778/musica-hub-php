@@ -195,3 +195,29 @@ La búsqueda del TP 5 (clase5/buscar.php) envía un formulario GET y recarga la 
 
 *Códigos de estado HTTP en la pestaña Red*
 ![Códigos HTTP](tp9/capturas/05-codigos-http.png)
+
+## TP 10: Refactorización a MVC e implementación con framework
+
+### Parte A: MVC en PHP puro
+El CRUD de canciones se reorganizó en app/Models/, app/Views/ y app/Controllers/, con canciones.php como punto de entrada.
+- app/Models/Cancion.php: consultas SQL con PDO y sentencias preparadas.
+- app/Controllers/CancionController.php: recibe la petición, valida y elige la vista.
+- app/Views/canciones/: marcado HTML sin lógica de base de datos.
+
+![Listado MVC](tp10/capturas/01-mvc-listado.png)
+![Formulario MVC](tp10/capturas/02-mvc-formulario.png)
+![Estructura MVC](tp10/capturas/03-mvc-estructura.png)
+
+### Parte B: módulo con CodeIgniter 4
+Proyecto de CodeIgniter 4 (instalación manual) en la carpeta ci4/. Módulo de canciones:
+- Rutas: canciones-ci y api/canciones (ci4/app/Config/Routes.php).
+- Controlador: ci4/app/Controllers/Canciones.php.
+- Modelo con Query Builder: ci4/app/Models/CancionModel.php.
+- Vistas con el motor de plantillas del framework: ci4/app/Views/layout.php y ci4/app/Views/canciones/lista.php.
+- La API devuelve JSON con los códigos 200, 400 y 404.
+
+Para ejecutarlo: copiar ci4/env como ci4/.env y completar los datos de la base (host, base musica_hub, usuario y puerto 3307).
+
+![Listado CodeIgniter](tp10/capturas/04-ci-listado.png)
+![API JSON](tp10/capturas/05-ci-api-json.png)
+![Estructura CodeIgniter](tp10/capturas/06-ci-estructura.png)
