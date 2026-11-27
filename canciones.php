@@ -1,8 +1,8 @@
 <?php
 require_once 'config/conexion.php';
 require_once 'includes/auth_guard.php';
-require_once 'app/Models/Cancion.php';
-require_once 'app/Controllers/CancionController.php';
+require_once __DIR__ . '/app/Models/Cancion.php';
+require_once __DIR__ . '/app/Controllers/CancionController.php';
 
 requerir_login('login.php');
 
