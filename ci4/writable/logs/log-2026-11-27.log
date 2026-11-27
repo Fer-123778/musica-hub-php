@@ -1,0 +1,10 @@
+CRITICAL - 2026-11-27 05:14:27 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "canciones-ci⁠"
+[Method: GET, Route: canciones-ci%E2%81%A0]
+in SYSTEMPATH\Router\Router.php on line 766.
+ 1 SYSTEMPATH\Router\Router.php(215): CodeIgniter\Router\Router->checkDisallowedChars('canciones-ci⁠')
+ 2 SYSTEMPATH\CodeIgniter.php(850): CodeIgniter\Router\Router->handle('canciones-ci⁠')
+ 3 SYSTEMPATH\CodeIgniter.php(462): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

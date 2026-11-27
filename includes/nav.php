@@ -21,7 +21,7 @@ $menu = [
     'contacto.php'         => 'Contacto',
 ];
 if ($logueado) {
-    $menu['admin/index.php'] = 'Administrar';
+    $menu['canciones.php'] = 'Administrar';
     $menu['panel.php'] = 'Mi panel';
 } else {
     $menu['login.php'] = 'Ingresar';
